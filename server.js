@@ -38,6 +38,10 @@ if (process.env.NODE_ENV === 'production') {
   // Set static folder
   app.use(express.static('client/build'));
 
+  app.get('/', (req,res)=>{
+    res.send("If you can see this text, that means the server is up and running")
+  })
+  
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
